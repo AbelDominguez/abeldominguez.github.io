@@ -1,0 +1,10 @@
+:root {
+    --bs-body-bg: var(--bs-gray-100);
+}
+
+.ubuntu-regular {
+    font-family: "Ubuntu", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
