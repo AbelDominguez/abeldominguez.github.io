@@ -7,4 +7,47 @@
     font-weight: 400;
     font-style: normal;
   }
-  
+
+.normal-color {
+    color: #e6e6e6;
+}
+
+.ico-size {
+    font-size: 1rem;
+}
+
+.verde {
+    color: #4bbf73;
+}
+
+.rojo {
+    color: #d9534f;
+}
+
+.amarillo {
+    color: #d9844f;
+}
+
+.badge-soft-danger {
+    background-color: rgba(217,83,79,.175);
+    color: color-yiq(rgba(217,83,79,.175));
+    color: #d9534f;
+    font-size: 1rem;
+
+}
+
+.badge-soft-primary {
+    background-color: rgba(217, 143, 79, 0.175);
+    color: color-yiq(rgba(217, 157, 79, 0.175));
+    color: #d9844f;
+    font-size: 1rem;
+
+}
+
+
+.badge-soft-success {
+    background-color: rgba(75,191,115,.175);
+    color: color-yiq(rgba(75,191,115,.175));
+    color: #4bbf73;
+    font-size: 1rem;
+}

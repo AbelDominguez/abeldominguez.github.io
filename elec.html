@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Abel Domínguez</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/variables.scss">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/custom.sass">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <div class="collapse navbar-collapse col-6" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="images/android-icon-36x36.png" alt="icon" class="img-fluid">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" aria-current="page" href="index.html">Inicio</a></li>
+                            <li><a class="dropdown-item" aria-current="page" href="elec.html">Electricidad</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-brand col-6 text-right">
+                <i class="fa-solid fa-terminal pr-2"></i>Abel Domínguez Mateo
+            </div>
+        </div>
+    </nav>
+
+      <section>
+        <main class="flex"></main>
+  
+        <template id="template-card">
+          <div class="container my-5">
+  
+            <!-- Cards -->
+            <div class="row">
+                <div class="col-sm-12 col-lg-12 col-xl-12 pb-2">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-12 col-xl-12">
+                                <span><i class="fa-solid fa-calendar-days pr-2 normal-color ico-size"></i></span>
+                                <span class="pe-2 font-weight-bold" style="font-size: 1rem;" id="fechaActual"> 01/01/2000 </span>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+              <!-- Actual -->
+              <div class="col-sm-12 col-lg-12 col-xl-6 pb-2">
+                <div class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-play pr-2 normal-color ico-size"></i>
+                    <span class="pe-2 font-weight-bold" style="font-size: 1rem;">Precio actual</span>
+                    <span id="horaActual" class="font-weight-bold" style="font-size: 1rem;"> 00:00 - 00:00 </span>
+                </div>
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-12 col-xl-12">
+                            <span id="precioActual">0,0</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-12 col-xl-12">
+                            <span class="badge badge-light" id="mediaPrecioActual"> +0.00% </span>
+                            <span class="normal-color">Respecto al precio medio</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Siguiente Mejor -->
+              <div class="col-sm-12 col-lg-12 col-xl-6 pb-2">
+                <div class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-forward pr-2 normal-color ico-size"></i>
+                    <span class="pe-2 font-weight-bold" style="font-size: 1rem;">Siguiente mejor</span>
+                    <span id="horaSiguiente" class="font-weight-bold" style="font-size: 1rem;"> 00:00 - 00:00 </span>
+                </div>
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-12 col-xl-12">
+                            <span class="verde" id="precioSiguiente" style="font-size: 1rem">0,0</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-12 col-xl-12">
+                            <span class="badge badge-light" id="mediaSiguiente"> +0.00% </span>
+                            <span class="normal-color">Respecto al precio medio</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Minimo -->
+              <div class="col-sm-12 col-lg-12 col-xl-4 pb-2">
+                <div class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-scale-unbalanced pr-2 verde ico-size"></i>
+                    <span class="pe-2 font-weight-bold" style="font-size: 1rem;">Precio minimo</span>
+                    <span id="horaMin" class="font-weight-bold" style="font-size: 1rem;"> 00:00 - 00:00 </span>
+                </div>
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-12 col-xl-12">
+                            <span class="verde" id="precioMin">0,0</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-12 col-xl-12">
+                            <span class="badge badge-soft-success" id="mediaMin"> +0.00% </span>
+                        <span class="normal-color">Por debajo de la media</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Medio -->
+              <div class="col-sm-12 col-lg-12 col-xl-4 pb-2">
+                <div class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-scale-balanced pr-2 amarillo ico-size"></i>
+                    <span class="pe-2 font-weight-bold" style="font-size: 1rem;">Precio medio</span>
+                    <span id="horaMin" class="font-weight-bold" style="font-size: 1rem;"> 00:00 - 00:00 </span>
+                </div>
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-12 col-xl-12">
+                            <span class="amarillo" id="precioMed">0,0</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-12 col-xl-12">
+                            <span class="badge badge-soft-primary" id="mediaMed"> +0.00% </span>
+                        <span class="normal-color">Diferencia de precios</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Maximo -->
+              <div class="col-sm-12 col-lg-12 col-xl-4 pb-2">
+                <div class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-scale-unbalanced-flip pr-2 rojo ico-size"></i>
+                    <span class="pe-2 font-weight-bold" style="font-size: 1rem;">Precio máximo</span>
+                    <span id="horaMax" class="font-weight-bold" style="font-size: 1rem;"> 00:00 - 00:00 </span>
+                </div>
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-12 col-xl-12">
+                            <span class="rojo" id="precioMax">0,0</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-12 col-xl-12">
+                            <span class="badge badge-soft-danger" id="mediaMax"> +0.00% </span>
+                        <span class="normal-color">Diferencia de precios</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+  
+            <!-- Horas -->
+            <div class="row">
+                <div class="col-sm-1-col-lg-12 col-xl-2">
+                    <div class="card flex-fill">
+                      <div class="card-body badge-soft-success" id="hora0" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                            <div>
+                              <span class="card-title normal-color" style="font-size: 20px;">00:00</span>
+                            </div>
+                            <div>
+                              <span class="badge badge-soft-success justify-content-rigth" id="mediahora0">24%</span>
+                              <span class="card-title" style="font-size: 18px;" id="preciohora0">0,151€</span>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success" id="hora1" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">01:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora1">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora1">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success" id="hora2" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;" >02:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora2">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora2">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success"  id="hora3" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">03:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora3">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora3">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success"  id="hora4" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">04:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora4">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora4">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-primary"  id="hora5" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">05:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-primary justify-content-rigth" id="mediahora5">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora5">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-primary" id="hora6" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;" >06:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-primary justify-content-rigth" id="mediahora6">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora6">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success" id="hora7" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;" >07:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora7">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora7">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-danger" id="hora8" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;" >08:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-danger justify-content-rigth" id="mediahora8">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora8">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success" id="hora9" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;" >09:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora9">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora9">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-primary"  id="hora10" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">10:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-primary justify-content-rigth" id="mediahora10">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora10">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success" id="hora11"  style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;" >11:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora11">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora11">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success" id="hora12" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">12:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora12">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora12">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success" id="hora13" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">13:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora13">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora13">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-primary"  id="hora14" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">14:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-primary justify-content-rigth" id="mediahora14">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora14">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-danger" id="hora15" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">15:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-danger justify-content-rigth" id="mediahora15">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora15">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-danger" id="hora16" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">16:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-danger justify-content-rigth" id="mediahora16">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora16">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success" id="hora17" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">17:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora17">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora17">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success" id="hora18" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">18:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora18">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora18">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success" id="hora19" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">19:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora19">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora19">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success" id="hora20" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">20:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora20">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora20">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-danger" id="hora21" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">21:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-danger justify-content-rigth" id="mediahora21">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora21">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-danger" id="hora22" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">22:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-danger justify-content-rigth" id="mediahora22">24%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora22">0,151€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-12 col-lg-12 col-xl-2">
+                <div class="card flex-fill">
+                  <div class="card-body badge-soft-success" id="hora23" style="display:flex;align-content: space-between;align-items: center;flex-direction: row;flex-wrap: wrap;justify-content: space-between;">
+                        <div>
+                          <span class="card-title normal-color" style="font-size: 20px;">23:00</span>
+                        </div>
+                        <div>
+                          <span class="badge badge-soft-success justify-content-rigth" id="mediahora23">0%</span>
+                          <span class="card-title" style="font-size: 18px;" id="preciohora23">0,0€</span>
+                        </div>
+                       
+                  </div>
+                </div>
+              </div>
+  
+  
+            </div>
+          </div>
+        </template>
+  
+      </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/619fb06776.js" crossorigin="anonymous"></script>
+    <script src="script/index.js"></script>
+</body>
+</html>
